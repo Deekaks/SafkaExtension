@@ -1,7 +1,7 @@
 {
-    "name": "Lisää lista /",
-    "description": "Lisää ruokalista /",
-    "version": "1.0",
+    "name": "BetterWilma",
+    "description": "null",
+    "version": "1.1",
     "permissions": [
       "activeTab"
     ],
