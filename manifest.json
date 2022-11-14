@@ -1,0 +1,19 @@
+{
+    "name": "Lisää lista /",
+    "description": "Lisää ruokalista /",
+    "version": "1.0",
+    "permissions": [
+      "activeTab"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://turku.inschool.fi/*"],
+        "js": ["safkat.js"],
+        "css": ["safka.css"]
+      }
+    ],
+    "browser_action": {
+      "default_title": "Add Text"
+    },
+    "manifest_version": 2
+}
