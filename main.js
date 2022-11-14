@@ -1,7 +1,30 @@
-var container=document.createElement("div");
-container.className ="panel-body no-bottom-padding no-top-padding";
-var content=document.createElement("div"); 
-container.appendChild(content)
-content.className ="alert alert-sm"
-document.querySelector("#loggedin-frontpage > div:nth-child(2)").appendChild(container); 
-content.innerHTML ="Tänään ruokana: <span class=\"safkabadge\"> Nakkikastiketta (M), Perunat</span>";
+if (window.location.href.endsWith("/")) {
+    var container = document.createElement("div");
+    document.querySelector("#loggedin-frontpage > div:nth-child(2)").appendChild(container);
+
+    const url = chrome.runtime.getURL("index.html")
+    fetch(url).then(res => res.text()).then(e => container.innerHTML = e);
+}
+else {
+    const lunchURL = chrome.runtime.getURL("index1.html")
+
+    fetch(lunchURL).then(res => res.text()).then(html => {
+        for (let i = 0; i < 5; i++) {
+            const lunchBreak = document.createElement("div");
+            lunchBreak.className = "block sera";
+            lunchBreak.style.left = i *  20 + .2 + "%";
+
+    
+            document.querySelector("#schedule").appendChild(lunchBreak);
+            lunchBreak.innerHTML = html
+        }
+    });
+
+    // var container1 = document.createElement("div");
+    document.querySelector("#schedule").appendChild(container1);
+
+    
+
+    // fetch(lunchURL).then(res => res.text()).then(e => container1.innerHTML = e);
+
+}
