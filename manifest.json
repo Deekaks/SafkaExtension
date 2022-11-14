@@ -8,8 +8,8 @@
     "content_scripts": [
       {
         "matches": ["https://turku.inschool.fi/*"],
-        "js": ["safkat.js"],
-        "css": ["safka.css"]
+        "js": ["main.js"],
+        "css": ["content.css"]
       }
     ],
     "browser_action": {

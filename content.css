@@ -1,4 +1,17 @@
-p {
-    background: black;
-    color: red;
+.safkabadge {
+    background: rgb(14, 216, 14);
+    display: inline-block;
+    min-width: 22px;
+    height: 21px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    text-indent: 0;
+    border: 0;
+    padding: 0.3em 0.7em 0.2em;
+    position: relative;
+    vertical-align: middle;
+    border-radius: 15px;
+    color: white;
 }
