@@ -3,7 +3,19 @@ if (window.location.href.endsWith("/")) {
     document.querySelector("#loggedin-frontpage > div:nth-child(2)").appendChild(container);
 
     const url = chrome.runtime.getURL("index.html")
-    fetch(url).then(res => res.text()).then(e => container.innerHTML = e);
+    fetch(url).then(res => res.text()).then(e => {
+        container.innerHTML = e;
+
+        fetch(`http://localhost:5000/api/v1/safka`, {}).then(res => res.json()).then(body => {
+            const dayList = [
+                "sun", "mon", "tues", "wed", "thurs", "fri", "sat"
+            ];
+            const menuToday = body[dayList[new Date().getDay()]];
+            console.log(menuToday)
+            document.getElementsByClassName("safkabadge")[0].innerText = menuToday.menu.map(e => e.name).join(", ")
+        });
+
+    });
 }
 else {
     const lunchURL = chrome.runtime.getURL("index1.html")
